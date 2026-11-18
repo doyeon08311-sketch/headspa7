@@ -1,12 +1,13 @@
 /* 메인 페이지에 쓰이는 데이터 (상품 정보는 products.json) */
 
-/* 메인 배너 — 이미지 안에 문구가 들어 있어서 alt 로 같은 내용을 적어 둠 */
+/* 메인 배너 — 이미지 안에 문구가 들어 있어서 alt 로 같은 내용을 적어 둠
+   productId: 배너를 누르면 이동할 상품 상세 (products.json 의 id) */
 export const heroSlides = [
-  { image: '/images/main/hero-01.png', alt: '피톤치드 두피 케어 샴푸 - 썬트리샴푸 롬브로단로' },
-  { image: '/images/main/hero-02.png', alt: '올인원 7초 케어의 격을 높이다 - 더 프리미엄 트리트먼트' },
-  { image: '/images/main/hero-03.png', alt: '가방은 가볍게 케어는 완벽하게 - 트래블 샤워 키트' },
-  { image: '/images/main/hero-04.png', alt: '두피까지 케어완료 샴푸는 H7 - 시그니처 H7 클리닉 앰플 샴푸' },
-  { image: '/images/main/hero-05.png', alt: '탈모엔 카밍 보습까지 완벽하게 - 시그니처 H7 카밍 앰플 샴푸' },
+  { image: '/images/main/hero-01.png', alt: '피톤치드 두피 케어 샴푸 - 썬트리샴푸 롬브로단로', productId: 3 },
+  { image: '/images/main/hero-02.png', alt: '올인원 7초 케어의 격을 높이다 - 더 프리미엄 트리트먼트', productId: 10 },
+  { image: '/images/main/hero-03.png', alt: '가방은 가볍게 케어는 완벽하게 - 트래블 샤워 키트', productId: 21 },
+  { image: '/images/main/hero-04.png', alt: '두피까지 케어완료 샴푸는 H7 - 시그니처 H7 클리닉 앰플 샴푸', productId: 22 },
+  { image: '/images/main/hero-05.png', alt: '탈모엔 카밍 보습까지 완벽하게 - 시그니처 H7 카밍 앰플 샴푸', productId: 23 },
 ]
 
 /* 카테고리 바로가기 */
