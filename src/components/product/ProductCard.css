@@ -1,0 +1,179 @@
+.pcard {
+  display: block;
+  min-width: 0;
+}
+
+/* 이미지 */
+.pcard-thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+
+.pcard-thumb > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pcard-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+/* 장바구니 담기 버튼 (이미지 오른쪽 아래) — 반투명 흰 원 + 회색 아이콘 */
+.pcard-cart {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #666;
+  stroke-width: 1.9; /* 아이콘 선 굵기 (실제 약 1.2px) */
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.pcard-cart:hover {
+  background: var(--color-white);
+  color: var(--color-brand-deep);
+}
+
+.pcard-cart:active {
+  transform: scale(0.9);
+}
+
+.pcard:hover .pcard-thumb img {
+  transform: scale(1.05);
+}
+
+/* 순위 배지 */
+.pcard-rank {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 0 0 10px 0;
+  background: var(--color-text-rank);
+  color: var(--color-white);
+}
+
+.pcard-rank.is-top {
+  background: var(--color-brand);
+}
+
+/* 정보 */
+.pcard-info {
+  display: block;
+  padding-top: 12px;
+}
+
+.pcard-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: var(--color-text-sub);
+  text-wrap: balance; /* 두 줄 길이를 비슷하게 나눠 한 단어만 떨어지지 않게 */
+}
+
+/* 세로형 카드(해시태그 없음): 상품명이 한 줄이어도 두 줄 높이를 차지해 가격 위치가 나란히 맞도록 */
+.pcard--grid:not(.has-hashtags) .pcard-name {
+  min-height: calc(1.375em * 2);
+}
+
+/* 효능 해시태그: 상품명 바로 아래, 최대 2줄 (넘치면 잘라냄) */
+.pcard-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+  max-height: calc(13px * 1.45 * 2);
+  overflow: hidden;
+  margin-top: 2px;
+  color: var(--color-brand-deep);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.pcard-hashtags li {
+  white-space: nowrap;
+}
+
+/* 해시태그가 있으면 가격을 조금 더 가깝게 */
+.has-hashtags .pcard-price {
+  margin-top: 6px;
+}
+
+.pcard-price {
+  margin-top: 8px;
+}
+
+.pcard-price del {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.pcard-price p {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pcard-rate {
+  color: var(--color-brand);
+}
+
+/* 태그 */
+.pcard-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pcard-tags li {
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: #f0f0f0;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 가로형 */
+.pcard--row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pcard--row .pcard-thumb {
+  flex: 0 0 151px;
+}
+
+.pcard--row .pcard-info {
+  flex: 1;
+  padding-top: 0;
+}
+
+.pcard--row .pcard-price {
+  margin-top: 22px;
+}
+
+.pcard--row.has-hashtags .pcard-price {
+  margin-top: 10px;
+}

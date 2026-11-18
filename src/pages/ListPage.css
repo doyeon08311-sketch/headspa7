@@ -1,0 +1,256 @@
+/* =========================================================
+   상품 목록 페이지 공통 (베스트 · Daily Care · Premium Care)
+   ========================================================= */
+.list-page {
+  padding-bottom: 80px;
+}
+
+/* 페이지 제목 */
+.page-head {
+  padding: 40px 26px 0;
+}
+
+.page-head-eyebrow {
+  color: var(--color-brand-deep);
+}
+
+.page-head h1,
+.line-banner h1 {
+  margin-top: 4px;
+}
+
+.page-head-desc {
+  margin-top: 6px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+  text-wrap: balance;
+}
+
+/* 2열 상품 목록 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 14px;
+}
+
+/* 목록에서는 해시태그를 한 줄로 (넘치면 잘라냄) */
+.product-grid .pcard-hashtags {
+  max-height: calc(13px * 1.45);
+}
+
+/* =========================================================
+   베스트
+   ========================================================= */
+.best-top {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 28px 26px 0;
+}
+
+/* 1위 머리말 (상품명 위): 👑 BEST 1 지금 가장 사랑받는 제품 */
+.best-first-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-bottom: 10px;
+}
+
+/* 👑 BEST 배지: 높이를 고정해 옆 문구와 세로 가운데가 맞음 */
+.best-first-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5px;
+  height: 21.5px;
+  padding: 0 9px 0 7px;
+  border-radius: 999px;
+  background: var(--color-brand-deep);
+  color: var(--color-white);
+  font-family: var(--font-point);
+  font-size: 10.8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+/* GmarketSans 대문자는 글자 상자 가운데보다 0.1em 위에 그려짐 → 그만큼 내려 왕관 · 캡슐과 수평 맞춤 */
+.best-first-badge-text {
+  position: relative;
+  top: 0.1em;
+}
+
+/* 아웃라인형: 채우기 없이 청록 테두리 + 청록 글씨 */
+.best-first-badge--outline {
+  border: 1.5px solid var(--color-brand-deep);
+  background: transparent;
+  color: var(--color-brand-deep);
+}
+
+.best-first-text {
+  color: var(--color-text-sub);
+  font-size: 14px;
+  line-height: 21.5px;
+}
+
+/* 1위: 큰 가로형 카드 */
+.best-first.pcard--row {
+  gap: 22px;
+}
+
+.best-first.pcard--row .pcard-thumb {
+  flex-basis: 48%;
+}
+
+.best-first .pcard-rank {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+}
+
+.best-first .pcard-name {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.best-first .pcard-hashtags {
+  margin-top: 6px;
+  font-size: 14px;
+  max-height: none;
+}
+
+.best-first .t-price,
+.best-first .t-discount {
+  font-size: 18px;
+}
+
+/* 4위부터: 2·3위 목록에 이어서 같은 간격으로 */
+.best-rest {
+  padding: 30px 26px 0;
+}
+
+/* =========================================================
+   Daily Care · Premium Care 상단 배너 (높이 270px)
+   ========================================================= */
+.line-banner {
+  height: 270px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+/* 이미지는 영역을 꽉 채움 (좁은 화면에서는 좌우가 조금 잘림) */
+.line-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 이미지 받기 전 임시 자리표시 */
+.line-banner-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: var(--color-placeholder);
+  color: var(--color-white);
+  font-size: 15px;
+}
+
+/* =========================================================
+   카테고리 탭 · 정렬
+   ========================================================= */
+.list-tabs {
+  position: sticky;
+  top: 117px; /* 헤더(66) + 메뉴 탭(51) 아래에 붙음 */
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+  padding: 16px 26px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--color-white);
+  /* 아래 선 없음: 헤더 아래 선과 겹쳐 보이지 않도록 */
+}
+
+.list-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.list-tabs button,
+.list-tabs a {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.list-tabs .is-active {
+  background: var(--color-brand);
+  color: var(--color-white);
+}
+
+.list-body {
+  padding: 0 26px;
+}
+
+.sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+.sort-bar strong {
+  color: var(--color-brand-deep);
+}
+
+.sort-select select {
+  appearance: none;
+  padding: 6px 22px 6px 6px;
+  border: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23333' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 4px center no-repeat;
+  color: var(--color-text-sub);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* =========================================================
+   좁은 화면 (모바일)
+   ========================================================= */
+@media (max-width: 480px) {
+  .page-head,
+  .best-top,
+  .best-rest,
+  .list-body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .list-tabs {
+    padding: 14px 18px;
+  }
+
+  .product-grid {
+    gap: 26px 10px;
+  }
+
+  .best-first .pcard-name {
+    font-size: 16px;
+  }
+
+  .best-first .pcard-hashtags {
+    font-size: 13px;
+  }
+
+  .best-first .t-price,
+  .best-first .t-discount {
+    font-size: 16px;
+  }
+}

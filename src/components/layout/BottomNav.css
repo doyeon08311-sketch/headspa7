@@ -1,0 +1,31 @@
+/* 하단 메뉴바: 가운데 영역 너비에 맞춰 화면 아래 고정 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: 45;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: var(--app-width);
+  height: var(--nav-height);
+  transform: translateX(-50%);
+  border-radius: 16px 16px 0 0;
+  background: var(--color-white);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;          /* 아이콘 ↔ 글자 간격 */
+  padding-top: 10px; /* 아이콘 위 여백 */
+  color: var(--color-text-sub);
+  font-size: 11px;
+}
+
+.bottom-nav a.active {
+  color: var(--color-brand-deep);
+}

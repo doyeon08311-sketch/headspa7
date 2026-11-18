@@ -1,0 +1,45 @@
+/* 가운데 영역 너비에 맞춰 하단 메뉴바 바로 위 */
+.toast-area {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--nav-height) + 16px);
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--app-width);
+  padding: 0 80px; /* 오른쪽 SNS·TOP 버튼과 겹치지 않게 */
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(25, 25, 25, 0.88);
+  color: var(--color-white);
+  font-size: 14px;
+  text-align: center;
+  animation: toast-in 2.2s ease forwards;
+}
+
+@keyframes toast-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10%,
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast-area {
+    padding: 0 76px 0 16px;
+  }
+}

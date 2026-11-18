@@ -1,0 +1,37 @@
+/* 「또는」 구분선 */
+.social-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 16px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.social-divider::before,
+.social-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+/* 구글로 계속하기 — 크기 · 모서리는 공통 .btn (로그인 버튼과 동일),
+   색은 구글 버튼 안내에 맞춘 흰 바탕 + 회색 테두리 */
+.google-btn {
+  gap: 10px;
+  border: 1px solid #dadce0;
+  background: var(--color-white);
+  color: #1f1f1f;
+  font-weight: 500;
+}
+
+.google-btn:hover {
+  border-color: #c6c9cf;
+  background: #f8f9fa;
+}
+
+.google-btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}

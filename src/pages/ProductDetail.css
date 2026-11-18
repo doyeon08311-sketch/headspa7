@@ -1,0 +1,296 @@
+.detail {
+  padding-bottom: 80px;
+}
+
+/* 이미지 */
+.detail-image {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--color-surface);
+}
+
+.detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-rank {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 14px;
+  border-radius: 0 0 12px 0;
+  background: var(--color-brand);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 기본 정보 */
+.detail-info {
+  padding: 26px 26px 0;
+}
+
+/* 위치 경로: Daily Care › 스타일링 */
+.detail-path {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.detail-path span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.detail-path a:hover {
+  color: var(--color-text-sub);
+  text-decoration: underline;
+}
+
+.detail-name {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+/* 해시태그: 연한 청록 둥근 칩 */
+.detail-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.detail-hashtags li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e6f6f6;
+  color: var(--color-brand-deep);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.detail-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.detail-rating strong {
+  color: var(--color-text);
+}
+
+.detail-price {
+  margin-top: 18px;
+}
+
+.detail-price del {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.detail-price p {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* 할인율: 가격보다 작게 */
+.detail-rate {
+  color: var(--color-brand);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+/* 용량 · 배송비 */
+.detail-meta {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 12px 10px;
+  margin-top: 22px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.detail-meta dt {
+  color: var(--color-text-muted);
+}
+
+.detail-meta dd {
+  color: var(--color-text-sub);
+}
+
+.detail-unit-price {
+  margin-left: 6px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+/* 구매 */
+.detail-buy {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+
+.detail-buy-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-buy-row .qty-stepper {
+  background: var(--color-white);
+}
+
+.detail-total {
+  color: var(--color-text-sub);
+  font-size: 15px;
+}
+
+.detail-total strong {
+  margin-left: 4px;
+  color: var(--color-text);
+  font-size: 20px;
+}
+
+.detail-buy-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* 섹션 공통 */
+.detail-section {
+  scroll-margin-top: 130px; /* '리뷰' 바로가기 시 헤더에 가려지지 않게 */
+  margin-top: 50px;
+  padding: 40px 26px 0;
+  border-top: 8px solid var(--color-surface);
+}
+
+.detail-section h2 {
+  margin-bottom: 20px;
+}
+
+.detail-count {
+  color: var(--color-brand);
+}
+
+/* 제품 특징: 체크 표시 목록 */
+.detail-features,
+.detail-set {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--color-text-sub);
+}
+
+.detail-features li,
+.detail-set li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.detail-features li::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat;
+}
+
+.detail-set li::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand);
+}
+
+/* 리뷰 */
+.detail-review-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.detail-review-summary strong {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.detail-reviews li {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-review-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.detail-review-head time {
+  margin-left: auto;
+}
+
+.detail-reviews p {
+  margin-top: 8px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* 함께 보면 좋은 상품 */
+.detail-related > li {
+  width: 160px;
+}
+
+@media (max-width: 480px) {
+  .detail-info,
+  .detail-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .detail-name {
+    font-size: 21px;
+  }
+
+  .detail-price p {
+    font-size: 23px;
+  }
+
+  .detail-rate {
+    font-size: 17px;
+  }
+
+  .detail-related > li {
+    width: 140px;
+  }
+}

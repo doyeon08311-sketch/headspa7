@@ -1,0 +1,67 @@
+.modal {
+  width: min(360px, calc(100% - 40px));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal[open] {
+  animation: modal-in 0.22s ease;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.modal-box {
+  padding: 30px 26px 24px;
+  text-align: center;
+}
+
+/* 제목 위 아이콘: 연한 청록 원 */
+.modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #e6f6f6;
+  color: var(--color-brand-deep);
+}
+
+.modal-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.modal-body {
+  margin-top: 12px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+/* 문단 사이 간격 */
+.modal-body p + p {
+  margin-top: 10px;
+}
+
+.modal-confirm {
+  margin-top: 24px;
+}

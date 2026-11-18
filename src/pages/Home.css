@@ -1,0 +1,413 @@
+/* =========================================================
+   메인 페이지 공통
+   ========================================================= */
+.home-section {
+  padding: 60px 26px 0;
+}
+
+.home-title {
+  margin-bottom: 22px;
+}
+
+/* 가로 스크롤(.snap-track, .hscroll) 공통 스타일은 index.css 에 있음 */
+
+/* =========================================================
+   메인 배너
+   ========================================================= */
+.hero {
+  position: relative;
+  background: var(--color-surface);
+}
+
+.hero-track img {
+  width: 100%;
+  aspect-ratio: 1740 / 1560;
+  object-fit: cover;
+}
+
+.hero-count {
+  position: absolute;
+  right: 20px;
+  bottom: 14px; /* 배너 문구(오른쪽 아래에 있는 배너도 있음)와 겹치지 않게 */
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--color-dim-30);
+  color: var(--color-white);
+}
+
+/* =========================================================
+   카테고리 바로가기
+   ========================================================= */
+.category-shortcut {
+  padding-top: 30px;
+}
+
+.category-shortcut ul {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 좁은 화면에서도 5칸 유지 */
+  gap: 10px;
+}
+
+.category-shortcut a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-text);
+}
+
+.category-shortcut-img {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  background: var(--color-surface);
+}
+
+.category-shortcut-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.category-shortcut a:hover img {
+  transform: scale(1.06);
+}
+
+.category-shortcut .t-nav-category {
+  white-space: nowrap;
+}
+
+/* =========================================================
+   당신을 위한 인기 상품
+   ========================================================= */
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 11px;
+}
+
+/* =========================================================
+   쿠폰 · 카카오 배너
+   ========================================================= */
+.promo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.promo-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 120px;
+  padding: 0 29px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+.promo-banner span {
+  color: var(--color-text-sub);
+  font-size: 16px;
+}
+
+.promo-banner--coupon {
+  background-color: #e0f9fc;
+  background-image: url('/images/main/coupon-bg-01.png');
+}
+
+.promo-banner--kakao {
+  background-color: #fafce0;
+  background-image: url('/images/main/coupon-bg-02.png');
+}
+
+/* =========================================================
+   카테고리별 오늘의 추천 상품
+   ========================================================= */
+.recommend-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 21px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.recommend-tabs button {
+  flex: 0 0 auto;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.recommend-tabs button.is-active {
+  background: var(--color-brand);
+  color: var(--color-white);
+}
+
+.recommend-banner {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 527 / 329;
+  background: #fcfcfc;
+}
+
+.recommend-banner-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.recommend-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 80%;
+  transition: transform 0.4s;
+}
+
+/* 마우스를 올리면 사진이 살짝 확대 */
+.recommend-banner-link:hover img {
+  transform: scale(1.03);
+}
+
+.recommend-banner-text {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.recommend-banner-text .t-eyebrow {
+  color: var(--color-brand-deep);
+}
+
+.recommend-banner-text h3 {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.recommend-next {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-white-70);
+  color: var(--color-text-sub);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.recommend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   헤드스파7 매거진
+   ========================================================= */
+.magazine {
+  margin-top: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: var(--color-surface);
+}
+
+.magazine-item img {
+  width: 100%;
+  aspect-ratio: 1583 / 795;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.magazine-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+}
+
+/* 제목은 한 줄 (넘치면 … 처리) */
+.magazine-caption span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.magazine-caption time {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.magazine-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.magazine-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-placeholder);
+}
+
+.magazine-dots button.is-active {
+  background: var(--color-brand);
+}
+
+/* =========================================================
+   예민한 두피를 위한 추천템
+   ========================================================= */
+.hscroll--picks > li {
+  width: 232px;
+}
+
+/* =========================================================
+   리얼 후기
+   ========================================================= */
+.reviews {
+  margin-top: 30px;
+  padding-bottom: 106px;
+  /* 위쪽은 흰색에서 자연스럽게 물결 배경으로 이어지게 */
+  background:
+    linear-gradient(to bottom, var(--color-white) 0, rgba(255, 255, 255, 0) 140px),
+    url('/images/main/review-bg.png') center top / cover no-repeat;
+}
+
+.hscroll--reviews > li {
+  width: 204px;
+}
+
+.review-card {
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--color-white);
+}
+
+.review-photo {
+  height: 146px;
+  background: var(--color-surface);
+}
+
+.review-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-body {
+  padding: 15px;
+}
+
+.review-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 6px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+  line-height: 21px;
+}
+
+.review-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #ececec;
+}
+
+.review-product img {
+  flex: 0 0 45px;
+  height: 45px;
+  border-radius: 4px;
+  background: var(--color-surface);
+  object-fit: cover;
+}
+
+.review-product span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* =========================================================
+   좁은 화면 (모바일)
+   ========================================================= */
+@media (max-width: 480px) {
+  .home-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .category-shortcut ul {
+    gap: 8px;
+  }
+
+  .category-shortcut-img {
+    border-radius: 18px;
+  }
+
+  .category-shortcut .t-nav-category {
+    font-size: 13px;
+  }
+
+  .category-shortcut a {
+    gap: 10px;
+  }
+
+  .popular-grid {
+    gap: 18px 8px;
+  }
+
+  .popular-grid .t-product-name {
+    font-size: 14px;
+  }
+
+  /* 오른쪽 아이콘 자리를 비워 두고 글자는 왼쪽에만 */
+  .promo-banner {
+    padding: 0 135px 0 20px;
+    background-size: auto 100%;
+  }
+
+  .promo-banner .t-promo {
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .promo-banner span {
+    font-size: 14px;
+  }
+
+  .pcard--row .pcard-thumb {
+    flex-basis: 120px;
+  }
+
+  .hscroll--picks > li {
+    width: 180px;
+  }
+}
