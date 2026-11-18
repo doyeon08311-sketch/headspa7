@@ -19,15 +19,15 @@
 
 <br>
 
-![PC 첫 화면 — 가운데 쇼핑몰 화면과 양쪽 검색·이벤트 영역](docs/pc-hero.png)
+![PC 첫 화면 — 가운데 쇼핑몰 화면과 양쪽 검색·이벤트 영역](docs/pc-hero.png?v=2)
 
 <table>
   <tr>
-    <td width="66%"><img src="docs/pc-detail.png" alt="PC 상품 상세 화면"></td>
+    <td width="66%"><img src="docs/pc-detail.png?v=2" alt="PC 카테고리 화면 — 트리트먼트 상품 목록"></td>
     <td width="34%"><img src="docs/mobile-hero.png" alt="모바일 첫 화면"></td>
   </tr>
   <tr>
-    <td align="center">PC · 상품 상세</td>
+    <td align="center">PC · 카테고리</td>
     <td align="center">모바일 · 첫 화면</td>
   </tr>
 </table>
