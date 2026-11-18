@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getRecent, getUser } from '../utils/storage.js'
+import { getAvailableCoupon } from '../utils/coupon.js'
 import { logOut } from '../utils/auth.js'
 import useCart from '../cart/useCart.js'
 import './ListPage.css'
@@ -20,6 +21,7 @@ function MyPage() {
   const { count } = useCart()
   const [user, setUser] = useState(getUser)
   const recentCount = getRecent().length
+  const couponCount = user ? (getAvailableCoupon(user) ? 1 : 0) : 0
 
   const logout = () => {
     logOut()
@@ -43,7 +45,7 @@ function MyPage() {
             <p className="my-email">{user.email}</p>
             <Link to="/coupon" className="my-coupon">
               <span>회원가입 축하 쿠폰</span>
-              <strong>10% 할인</strong>
+              <strong>{couponCount ? '10% 할인' : '사용 완료'}</strong>
             </Link>
             <button type="button" className="my-logout" onClick={logout}>
               로그아웃
@@ -82,7 +84,7 @@ function MyPage() {
         </li>
         <li>
           <Link to="/coupon">
-            <strong>{user ? 1 : 0}</strong>
+            <strong>{couponCount}</strong>
             <span>쿠폰</span>
           </Link>
         </li>

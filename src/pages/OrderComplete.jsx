@@ -34,6 +34,12 @@ function OrderComplete() {
               </dd>
             </>
           )}
+          {state.couponDiscount > 0 && (
+            <>
+              <dt>쿠폰 할인</dt>
+              <dd>−{formatPrice(state.couponDiscount)}</dd>
+            </>
+          )}
           <dt>결제 금액</dt>
           <dd>
             <strong>{formatPrice(state.total)}</strong>

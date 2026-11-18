@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { clearPendingOrder, readPendingOrder } from '../utils/payment.js'
+import { getUser, markCouponUsed } from '../utils/storage.js'
 import useCart from '../cart/useCart.js'
 import './ListPage.css'
 import './SubPage.css'
@@ -30,11 +31,13 @@ function OrderSuccess() {
         orderId,
         amount: Number(params.get('amount')),
         items: order?.items ?? items.map(({ id, qty }) => ({ id, qty })),
+        couponId: order?.couponId ?? null,
       }),
     })
       .then(async (res) => {
         const data = await res.json().catch(() => ({}))
         if (!res.ok) throw new Error(data.message || '결제 승인에 실패했어요.')
+        if (order?.couponId) markCouponUsed(getUser()?.email, order.couponId) // 쿠폰은 결제 승인 후에만 사용 처리
         clearPendingOrder()
         clearCart()
         const summary = order?.summary ?? { total: data.totalAmount }

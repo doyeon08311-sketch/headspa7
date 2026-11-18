@@ -73,6 +73,23 @@ export function addMember(member) {
   write(MEMBERS_KEY, [...getMembers().filter((m) => m.email !== member.email), member])
 }
 
+/* ---------- 사용한 쿠폰 (회원 이메일별 쿠폰 id 목록, 이 브라우저에 저장) ---------- */
+const USED_COUPONS_KEY = 'headspa7-used-coupons'
+
+export function getUsedCoupons(email) {
+  if (!email) return []
+  const all = read(USED_COUPONS_KEY, {})
+  const list = all?.[email.toLowerCase()]
+  return Array.isArray(list) ? list : []
+}
+
+export function markCouponUsed(email, couponId) {
+  if (!email || !couponId) return
+  const all = read(USED_COUPONS_KEY, {}) ?? {}
+  const key = email.toLowerCase()
+  write(USED_COUPONS_KEY, { ...all, [key]: [...new Set([...getUsedCoupons(email), couponId])] })
+}
+
 /* ---------- 로그인한 회원 (없으면 null) ---------- */
 const USER_KEY = 'headspa7-user'
 

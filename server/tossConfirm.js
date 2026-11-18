@@ -3,6 +3,7 @@
    - 내 컴퓨터(npm run dev): vite.config.js 가 /api/confirm 으로 연결
    흐름: 결제창 완료 → /order/success → 여기서 금액 확인 → 토스에 승인 요청 → 결제 완료 */
 import { createRequire } from 'node:module'
+import { calcCouponDiscount, findCoupon } from '../src/data/coupons.js'
 
 const products = createRequire(import.meta.url)('../src/data/products.json')
 
@@ -19,7 +20,7 @@ function calcTotal(items) {
 }
 
 /* 반환값: { status: HTTP 상태 코드, data: 화면에 돌려줄 내용 } */
-export async function confirmPayment({ paymentKey, orderId, amount, items } = {}, secretKey) {
+export async function confirmPayment({ paymentKey, orderId, amount, items, couponId } = {}, secretKey) {
   if (!secretKey) {
     return { status: 500, data: { message: '서버에 결제 키(TOSS_SECRET_KEY)가 설정되지 않았어요.' } }
   }
@@ -27,8 +28,15 @@ export async function confirmPayment({ paymentKey, orderId, amount, items } = {}
     return { status: 400, data: { message: '결제 정보가 올바르지 않아요.' } }
   }
 
-  const total = calcTotal(items)
-  if (total === null || total !== Number(amount)) {
+  // 상품 금액 − 쿠폰 할인 (쿠폰 규칙도 서버가 직접 적용)
+  // ※ 쿠폰 '1회 사용' 기록은 지금 브라우저에만 있어 서버에서는 확인하지 못함 (주문 DB가 생기면 서버에서 확인)
+  const coupon = couponId ? findCoupon(couponId) : null
+  const subtotal = calcTotal(items)
+  if ((couponId && !coupon) || subtotal === null) {
+    return { status: 400, data: { message: '주문 정보가 올바르지 않아요. 다시 주문해 주세요.' } }
+  }
+  const total = subtotal - calcCouponDiscount(coupon, subtotal)
+  if (total !== Number(amount)) {
     return { status: 400, data: { message: '결제 금액이 주문 금액과 달라요. 다시 주문해 주세요.' } }
   }
 

@@ -31,12 +31,13 @@ export function clearPendingOrder() {
 export const isPaymentCancelled = (err) => ['USER_CANCEL', 'PAY_PROCESS_CANCELED'].includes(err?.code)
 
 /* 결제창 열기
-   items: [{ id, qty }], summary: 주문 완료 화면에 보여 줄 내용, user: 로그인 회원(없으면 비회원) */
-export async function requestCardPayment({ items, total, orderName, summary, user }) {
+   items: [{ id, qty }], total: 쿠폰까지 뺀 결제 금액, couponId: 적용한 쿠폰(없으면 null)
+   summary: 주문 완료 화면에 보여 줄 내용, user: 로그인 회원 */
+export async function requestCardPayment({ items, total, couponId = null, orderName, summary, user }) {
   const orderId = `HS7-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
 
   try {
-    sessionStorage.setItem(PENDING_KEY, JSON.stringify({ orderId, items, summary }))
+    sessionStorage.setItem(PENDING_KEY, JSON.stringify({ orderId, items, couponId, summary }))
   } catch {
     /* 저장이 막혀 있으면 성공 화면에서 장바구니로 대신 확인 */
   }

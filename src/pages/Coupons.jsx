@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { getUser } from '../utils/storage.js'
-import { WELCOME_COUPON } from '../data/coupons.js'
+import { getMyCoupons } from '../utils/coupon.js'
 import EmptyState from '../components/common/EmptyState.jsx'
 import Emoji from '../components/common/Emoji.jsx'
 import Modal from '../components/common/Modal.jsx'
@@ -9,8 +9,8 @@ import './SubPage.css'
 
 /* 쿠폰함 — 쿠폰을 누르면 이용 조건이 모달로 열림 */
 function Coupons() {
-  const user = getUser()
-  const coupons = user ? [WELCOME_COUPON] : []
+  const coupons = getMyCoupons(getUser())
+  const availableCount = coupons.filter((c) => !c.used).length
   const [opened, setOpened] = useState(null)
 
   return (
@@ -31,13 +31,14 @@ function Coupons() {
         <>
           <div className="cart-toolbar">
             <p>
-              사용 가능한 쿠폰 <strong>{coupons.length}</strong>장
+              사용 가능한 쿠폰 <strong>{availableCount}</strong>장
             </p>
           </div>
           <ul className="coupon-list">
             {coupons.map((c) => (
               <li key={c.id}>
-                <button type="button" className="coupon-card" onClick={() => setOpened(c)}>
+                <button type="button" className={`coupon-card${c.used ? ' is-used' : ''}`} onClick={() => setOpened(c)}>
+                  {c.used && <span className="coupon-card-badge">사용 완료</span>}
                   <span className="coupon-card-value">
                     <small>COUPON</small>
                     {c.discount}
