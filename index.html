@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      /* 휴대폰(화면 짧은 쪽이 580px 미만)에서는 PC 가운데 화면과 같은 580px 너비로 그리고,
-         화면 폭에 맞게 통째로 축소 → 어떤 휴대폰에서도 같은 그리드 · 같은 줄바꿈 · 같은 글자 비율
-         (PC 브라우저는 이 설정을 쓰지 않으므로 PC 화면에는 영향 없음) */
-      if (Math.min(screen.width, screen.height) < 580) {
-        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=580')
+      /* 휴대폰(화면 짧은 쪽이 481px 미만)은 모두 481px 너비로 그리고 화면 폭에 맞게 통째로 축소
+         → 어떤 휴대폰에서도 같은 그리드 · 같은 줄바꿈 · 같은 글자 비율
+         - 481: PC 가운데 화면(580)과 같은 디자인 규칙을 쓰는 가장 좁은 폭 (480 이하 전용 규칙이 켜지지 않음)
+           580으로 그리면 390px 휴대폰에서 67%로 너무 작아져서, 481로 그려 약 81% 크기로 보이게 함
+         - PC 브라우저는 이 설정을 쓰지 않으므로 PC 화면에는 영향 없음 */
+      if (Math.min(screen.width, screen.height) < 481) {
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=481')
       }
     </script>
     <link

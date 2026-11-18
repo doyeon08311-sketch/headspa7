@@ -1,4 +1,4 @@
-/* 페이지 상단 배너 (높이 270px) — 베스트 · Daily Care · Premium Care 공통
+/* 페이지 상단 배너 (580 × 270 비율) — 베스트 · Daily Care · Premium Care 공통
    - src 가 없으면 회색 자리표시
    - 권장 이미지 크기: 1160 × 540px (화면 580 × 270 의 2배) */
 function PageBanner({ name, src }) {

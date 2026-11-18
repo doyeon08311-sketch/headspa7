@@ -356,6 +356,38 @@
 }
 
 /* =========================================================
+   휴대폰 (580px 미만 — 휴대폰은 481px 폭으로 그려짐, PC 가운데 화면은 해당 없음)
+   ========================================================= */
+@media (max-width: 579px) {
+  /* 프리미엄 라인업 배너: 배너 높이가 줄어 키 큰 제품이 문구에 닿으므로 문구를 위로 · 조금 작게 */
+  .recommend-banner-text {
+    top: 18px;
+  }
+
+  .recommend-banner-text .t-eyebrow {
+    font-size: 12px;
+  }
+
+  .recommend-banner-text h3 {
+    margin-top: 2px;
+    font-size: 19px;
+  }
+
+  /* 쿠폰 · 카카오 배너: 큰 글씨를 줄이고 오른쪽 그림 자리를 비워 겹치지 않게 */
+  .promo-banner {
+    padding-right: 125px;
+  }
+
+  .promo-banner .t-promo {
+    font-size: 19px;
+  }
+
+  .promo-banner span {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
    좁은 화면 (모바일)
    ========================================================= */
 @media (max-width: 480px) {
